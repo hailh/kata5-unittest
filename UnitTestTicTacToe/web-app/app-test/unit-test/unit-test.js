@@ -13,5 +13,8 @@ Harness.start([{
     }, {
         title : 'Win in row',
         url : 'specs/02_win_in_row.js'
+    }, {
+        title : 'Win in diag',
+        url : 'specs/03_win_in_diag.js'
     }]
 }]);
