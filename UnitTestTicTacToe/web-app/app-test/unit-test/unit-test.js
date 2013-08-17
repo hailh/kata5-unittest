@@ -10,5 +10,8 @@ Harness.start([{
     items: [{
         title : 'Win in column',
         url : 'specs/01_win_in_column.js'
+    }, {
+        title : 'Win in row',
+        url : 'specs/02_win_in_row.js'
     }]
 }]);
