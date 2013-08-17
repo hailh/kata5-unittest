@@ -15,7 +15,12 @@ Utils = {
     checkFinishGame: function () {
         var isFinish = false;
         isFinish = Utils.checkWinInColumn();
-        if(!isFinish) isFinish = Utils.checkWinInRow();
+        if(!isFinish) {
+            isFinish = Utils.checkWinInRow();
+            if(!isFinish) {
+                isFinish = Utils.checkWinInDiag();
+            }
+        }
         return isFinish;
     },
 
@@ -49,6 +54,12 @@ Utils = {
                 }
             }
         }
+    },
+
+    checkWinInDiag: function () {
+        if(Utils.board[0][0] == Utils.board[1][1] == Utils.board[2][2] && Utils.board[0][0] != 0) return true;
+        if(Utils.board[0][2] == Utils.board[1][1] == Utils.board[2][0] && Utils.board[0][2] != 0) return true;
+        return false;
     }
 }
 
