@@ -38,6 +38,7 @@ Utils = {
                 }
             }
         }
+        return false;
     },
 
     checkWinInRow: function () {
@@ -54,11 +55,12 @@ Utils = {
                 }
             }
         }
+        return false;
     },
 
     checkWinInDiag: function () {
-        if(Utils.board[0][0] == Utils.board[1][1] == Utils.board[2][2] && Utils.board[0][0] != 0) return true;
-        if(Utils.board[0][2] == Utils.board[1][1] == Utils.board[2][0] && Utils.board[0][2] != 0) return true;
+        if((Utils.board[0][0] == Utils.board[1][1]) && (Utils.board[1][1] == Utils.board[2][2]) && Utils.board[0][0] != 0) return true;
+        if((Utils.board[0][2] == Utils.board[1][1]) && (Utils.board[1][1] == Utils.board[2][0]) && Utils.board[0][2] != 0) return true;
         return false;
     }
 }

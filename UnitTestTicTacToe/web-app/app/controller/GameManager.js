@@ -12,7 +12,7 @@ Ext.define('AM.controller.GameManager', {
                     if(Utils.count % 2 == 0){
                         if(Ext.getCmp(y + "_" + x).src == "") {
                             Ext.getCmp(y + "_" + x).setSrc("images/x.png");
-                            Utils.playOneStep(x, y, 0);
+                            Utils.playOneStep(x, y, 1);
                             if(Utils.checkFinishGame()){
                                 Ext.getCmp('txtStatus').setText("Player X win !");
                                 Ext.getCmp('btnControl').setText("Restart");
@@ -26,7 +26,7 @@ Ext.define('AM.controller.GameManager', {
                     } else {
                         if(Ext.getCmp(y + "_" + x).src == "") {
                             Ext.getCmp(y + "_" + x).setSrc("images/o.png");
-                            Utils.playOneStep(x, y, 1);
+                            Utils.playOneStep(x, y, 2);
                             if(Utils.checkFinishGame()){
                                 Ext.getCmp('txtStatus').setText("Player O win !");
                                 Ext.getCmp('btnControl').setText("Restart");
