@@ -12,13 +12,29 @@ Ext.define('AM.controller.GameManager', {
                     if(Utils.count % 2 == 0){
                         if(Ext.getCmp(y + "_" + x).src == "") {
                             Ext.getCmp(y + "_" + x).setSrc("images/x.png");
-                            Ext.getCmp('txtStatus').setText("X played, O playing ...");
+                            Utils.playOneStep(x, y, 0);
+                            if(Utils.checkFinishGame()){
+                                Ext.getCmp('txtStatus').setText("Player X win !");
+                                Ext.getCmp('btnControl').setText("Restart");
+                                Ext.getCmp('mainScreenId').setDisabled(true);
+                                Utils.gameStatus = 2;
+                            } else {
+                                Ext.getCmp('txtStatus').setText("X played, O playing ...");
+                            }
                             ++Utils.count;
                         }
                     } else {
                         if(Ext.getCmp(y + "_" + x).src == "") {
                             Ext.getCmp(y + "_" + x).setSrc("images/o.png");
-                            Ext.getCmp('txtStatus').setText("O played, X playing ...");
+                            Utils.playOneStep(x, y, 1);
+                            if(Utils.checkFinishGame()){
+                                Ext.getCmp('txtStatus').setText("Player O win !");
+                                Ext.getCmp('btnControl').setText("Restart");
+                                Ext.getCmp('mainScreenId').setDisabled(true);
+                                Utils.gameStatus = 2;
+                            } else {
+                                Ext.getCmp('txtStatus').setText("O played, X playing ...");
+                            }
                             ++Utils.count;
                         }
                     }
